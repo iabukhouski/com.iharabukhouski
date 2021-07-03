@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export const Logo =
   () => {
 
@@ -11,11 +13,15 @@ export const Logo =
     } as const;
 
     return (
-      <a
+      <div
         style={styles.logo}
-        href="/"
       >
-        IHAR ABUKHOUSKI
-      </a>
+        <Link
+
+          href="/"
+        >
+          IHAR ABUKHOUSKI
+        </Link>
+      </div>
     );
   }

@@ -2,7 +2,7 @@ export const Page =
   (
     {
       children,
-    }
+    }: { children: any }
   ) => {
 
     return (

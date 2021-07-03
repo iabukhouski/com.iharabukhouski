@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import styles1 from '../styles/Home.module.css'
 
 type MenuProps = {
@@ -33,31 +35,39 @@ export const Menu =
         style={styles.menu}
       >
 
-        <a
+        <div
           className={value === `biography` ? styles1['menuItemActive'] : styles1['menuItem']}
           style={styles.menuItem}
-          href="/biography"
         >
-          Biography
-        </a>
+          <Link
+            href="/biography"
+          >
+            Biography
+          </Link>
+        </div>
 
 
-        <a
+        <div
           className={value === `conversations` ? styles1['menuItemActive'] : styles1['menuItem']}
           style={styles.menuItem}
-          href="/conversations"
         >
-          Conversations
-        </a>
+          <Link
+            href="/conversations"
+          >
+            Conversations
+          </Link>
+        </div>
 
-
-        <a
-          className={value === `essays` ? styles1['menuItemActive'] : styles1['menuItem']}
-          style={styles.menuItem}
-          href="/essays"
+        <div
+            className={value === `essays` ? styles1['menuItemActive'] : styles1['menuItem']}
+            style={styles.menuItem}
         >
-          Essays
-        </a>
+          <Link
+            href="/essays"
+          >
+            Essays
+          </Link>
+        </div>
 
       </nav>
     );
