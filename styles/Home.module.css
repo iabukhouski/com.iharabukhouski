@@ -1,0 +1,17 @@
+.menuItem,
+.menuItemActive {
+  color: white;
+  position: relative;
+}
+
+.menuItem:hover,
+.menuItemActive:hover {
+  color: #cccccc;
+}
+
+.menuItemActive:before {
+  content: '●';
+  /* margin-right: 10px; */
+  position: absolute;
+  left: -15px;
+}
