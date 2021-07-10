@@ -10,20 +10,28 @@ export const Page =
         <style jsx>
           {
             `
-              @media (max-width: 1000px) {
+              .page {
+                width: 100%;
+                height: 100%;
+                
+              }
+              @media (min-width: 426px) {
                 .page {
-                  padding: 50px;
+                  padding: 0 50px;
                 }
               }
-              @media (max-width: 500px) {
+              @media (max-width: 425px) {
                 .page {
-                  padding: 15px;
+                  padding: 0 20px;
+                  margin-bottom: 150px;
                 }
               }
             `
           }
         </style>
-        <div className="page">
+        <div
+          className='page'
+        >
           {children}
         </div>
       </>

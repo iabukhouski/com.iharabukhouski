@@ -1,7 +1,5 @@
 import Link from 'next/link';
 
-import styles1 from '../styles/Home.module.css'
-
 type MenuProps = {
   value?:
   | `biography`
@@ -16,59 +14,99 @@ export const Menu =
     }: MenuProps,
   ) => {
 
-    const styles = {
-      menu: {
-        display: `flex`,
-        flexDirection: `column`,
-      },
-      menuItem: {
-
-        fontSize: `14px`,
-        lineHeight: `40px`,
-        fontWeight: 600,
-        width: `10px`
-      },
-    } as const;
-
     return (
-      <nav
-        style={styles.menu}
-      >
+      <>
+        <style jsx>
+          {
+            `
+              .menu {
+                display: flex;
+                flex-direction: column;
+              }
 
-        <div
-          className={value === `biography` ? styles1['menuItemActive'] : styles1['menuItem']}
-          style={styles.menuItem}
+              .menuItem,
+              .menuItemActive {
+                color: white;
+                
+                position: relative;
+              }
+
+              .menuItem:active,
+              .menuItemActive:active {
+                color: #cccccc;
+              }
+
+              .menuItemActive:before {
+                content: '●';
+                position: absolute;
+                left: -15px;
+              }
+
+              @media (min-width: 426px) {
+                .menuItem,
+                .menuItemActive {
+                  font-size: 14px;
+                  font-weight: 600;
+                  line-height: 40px;
+                }
+              }
+              @media (max-width: 425px) {
+                .menuItem,
+                .menuItemActive {
+                  font-size: 24px;
+                  font-weight: 900;
+                  line-height: 50px;
+                }
+              }
+            `
+          }
+        </style>
+
+        <nav
+          className='menu'
         >
+
           <Link
             href="/biography"
           >
-            Biography
+            <a
+              className={value === `biography` ? `menuItemActive` : `menuItem`}
+            >
+              Biography
+            </a>
           </Link>
-        </div>
 
-
-        <div
-          className={value === `conversations` ? styles1['menuItemActive'] : styles1['menuItem']}
-          style={styles.menuItem}
-        >
           <Link
             href="/conversations"
           >
-            Conversations
+            <a
+              className={value === `conversations` ? `menuItemActive` : `menuItem`}
+            >
+              Conversations
+            </a>
           </Link>
-        </div>
 
-        <div
-            className={value === `essays` ? styles1['menuItemActive'] : styles1['menuItem']}
-            style={styles.menuItem}
-        >
           <Link
             href="/essays"
           >
-            Essays
+            <a
+              className={value === `essays` ? `menuItemActive` : `menuItem`}
+            >
+              Essays
+            </a>
           </Link>
-        </div>
 
-      </nav>
+          <Link
+            href="https://google.com"
+          >
+            <a
+              className='menuItem'
+            >
+              Iki
+            </a>
+          </Link>
+
+        </nav>
+      </>
     );
   }

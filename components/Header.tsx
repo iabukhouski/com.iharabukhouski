@@ -2,55 +2,40 @@ import {
   Logo,
 } from './Logo';
 
-// const Title = styled.h1`
-//   font-size: 50px;
-//   color: ${({ theme }) => theme.colors.primary};
-// `
-
 export const Header =
   () => {
-
-    const styles = {
-      header: {
-        marginBottom: `30px`,
-        justifyContent: `space-between`,
-        display: `flex`,
-        alignItems: `center`
-      },
-      button: {
-        background: `white`,
-        borderRadius: `15px`,
-        lineHeight: `30px`,
-        padding: `0 13px`,
-        fontSize: `12px`,
-        fontWeight: 600,
-        border: `none`
-      }
-    } as const;
 
     return (
       <>
         <style jsx>
           {
             `
-              // @media (max-width: 10px) {
-              //   .hello {
-              //     font: 15px Helvetica, Arial, sans-serif;
-              //     background: #eee;
-              //     padding: 100px;
-              //     text-align: center;
-              //     transition: 100ms ease-in background;
-              //   }
-              //   .hello:hover {
-              //     background: #ccc;
-              //   }
-              // }
+              .header {
+                position: sticky;
+                display: flex;
+                top: 0;
+                left: 0;
+                right: 0;
+                grid-area: header;
+              }
+              @media screen and (min-width: 768px) {
+                .header {
+                  padding: 50px 0;
+                  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 65%, rgba(0,0,0,0) 100%);
+                }
+              }
+              @media screen and (max-width: 767px) {
+                .header {
+                  justify-content: flex-end;
+                  padding: 20px 0;
+                  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 65%, rgba(0,0,0,0) 100%);
+                }
+              }
             `
           }
         </style>
         <header
-          style={styles.header}
-          // className="hello"
+          className='header'
         >
           <Logo />
           {/* <a
